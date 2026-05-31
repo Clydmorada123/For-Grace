@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+
+    background:
+    linear-gradient(
+        rgba(0,20,60,.75),
+        rgba(0,0,40,.85)
+    ),
+    url("360_F_1500168557_MhTcxHnZGj722e6zeUg6qKPRohyiyd52.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+    background-size:40px 40px;
+    opacity:.15;
+    animation:twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.08;}
+    to{opacity:.25;}
+}
+
+.container{
+    width:90%;
+    max-width:850px;
+    z-index:10;
+}
+
+.card{
+    position:relative;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:25px;
+    padding:40px;
+    color:white;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+    0 0 20px rgba(0,170,255,.3),
+    0 0 60px rgba(0,170,255,.15);
+
+    transition:.5s;
+}
+
+.card:hover{
+    transform:
+    perspective(1000px)
+    rotateX(2deg)
+    rotateY(-2deg)
+    scale(1.01);
+}
+
+h1,h2{
+    color:#c7ebff;
+    margin-bottom:20px;
+    text-shadow:
+    0 0 10px #4da6ff,
+    0 0 20px #4da6ff;
+}
+
+.subtitle{
+    margin-bottom:25px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#4da6ff;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.hidden{
+    display:none;
+}
+
+#typedText{
+    text-align:left;
+    white-space:pre-wrap;
+    line-height:1.9;
+    font-size:17px;
+    max-height:60vh;
+    overflow-y:auto;
+}
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+.petal{
+    position:fixed;
+    top:-50px;
+    pointer-events:none;
+    animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.6;
+    }
+
+    100%{
+        transform:
+        translateY(120vh)
+        translateX(120px)
+        rotate(360deg);
+        opacity:0;
+    }
+}
